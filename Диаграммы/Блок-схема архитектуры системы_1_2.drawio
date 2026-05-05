@@ -1,0 +1,92 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Страница-1" id="8pYggQRuThpthW4YdJa0">
+    <mxGraphModel dx="1250" dy="468" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-1" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" value="Клиент (браузер)" vertex="1">
+          <mxGeometry height="116" width="160" x="160" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-2" parent="cvFN_kAnlhO4mR3ExVBL-1" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Адаптивный UI" vertex="1">
+          <mxGeometry height="30" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-3" parent="cvFN_kAnlhO4mR3ExVBL-1" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Bootstrap" vertex="1">
+          <mxGeometry height="30" width="160" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-4" parent="cvFN_kAnlhO4mR3ExVBL-1" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="JavaScript (AJAX)" vertex="1">
+          <mxGeometry height="30" width="160" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-7" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" value="Веб-сервер (Django)" vertex="1">
+          <mxGeometry height="176" width="160" x="160" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-8" parent="cvFN_kAnlhO4mR3ExVBL-7" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="URL диспетчер" vertex="1">
+          <mxGeometry height="30" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-9" parent="cvFN_kAnlhO4mR3ExVBL-7" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Middleware" vertex="1">
+          <mxGeometry height="30" width="160" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-10" parent="cvFN_kAnlhO4mR3ExVBL-7" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="View функции" vertex="1">
+          <mxGeometry height="30" width="160" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-11" parent="cvFN_kAnlhO4mR3ExVBL-7" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Бизнес-логика" vertex="1">
+          <mxGeometry height="30" width="160" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-12" parent="cvFN_kAnlhO4mR3ExVBL-7" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="ORM" vertex="1">
+          <mxGeometry height="30" width="160" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-13" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" value="Статические файлы" vertex="1">
+          <mxGeometry height="116" width="160" x="390" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-14" parent="cvFN_kAnlhO4mR3ExVBL-13" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Стили CSS" vertex="1">
+          <mxGeometry height="30" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-15" parent="cvFN_kAnlhO4mR3ExVBL-13" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="JavaScript" vertex="1">
+          <mxGeometry height="30" width="160" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-16" parent="cvFN_kAnlhO4mR3ExVBL-13" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Изображения" vertex="1">
+          <mxGeometry height="30" width="160" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-17" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" value="PostgreSQL" vertex="1">
+          <mxGeometry height="116" width="160" x="160" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-18" parent="cvFN_kAnlhO4mR3ExVBL-17" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Таблицы" vertex="1">
+          <mxGeometry height="30" width="160" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-21" parent="cvFN_kAnlhO4mR3ExVBL-17" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Индексы" vertex="1">
+          <mxGeometry height="30" width="160" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-22" parent="cvFN_kAnlhO4mR3ExVBL-17" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" value="Триггеры" vertex="1">
+          <mxGeometry height="30" width="160" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-23" edge="1" parent="1" source="cvFN_kAnlhO4mR3ExVBL-4" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" target="cvFN_kAnlhO4mR3ExVBL-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="60" y="200" as="sourcePoint" />
+            <mxPoint x="110" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-26" connectable="0" parent="cvFN_kAnlhO4mR3ExVBL-23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 16px;&quot; face=&quot;Times New Roman&quot;&gt;HTTP запросы (GET/POST)&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2364" y="-1" as="geometry">
+            <mxPoint x="1" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-24" edge="1" parent="1" source="cvFN_kAnlhO4mR3ExVBL-15" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" target="cvFN_kAnlhO4mR3ExVBL-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="290" y="160" as="sourcePoint" />
+            <mxPoint x="290" y="194" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-25" edge="1" parent="1" source="cvFN_kAnlhO4mR3ExVBL-7" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" target="cvFN_kAnlhO4mR3ExVBL-17" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="320" y="270" as="sourcePoint" />
+            <mxPoint x="320" y="304" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cvFN_kAnlhO4mR3ExVBL-28" connectable="0" parent="cvFN_kAnlhO4mR3ExVBL-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;SQL запрос&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.4182" y="1" as="geometry">
+            <mxPoint x="-1" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

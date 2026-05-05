@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Coverage for core\urls.py: 100%</title>
+    <link rel="icon" sizes="32x32" href="favicon_32_cb_c827f16f.png">
+    <link rel="stylesheet" href="style_cb_5c747636.css" type="text/css">
+    <script src="coverage_html_cb_188fc9a4.js" defer></script>
+</head>
+<body class="pyfile">
+<header>
+    <div class="content">
+        <h1>
+            <span class="text">Coverage for </span><b>core&#8201;\&#8201;urls.py</b>:
+            <span class="pc_cov">100%</span>
+        </h1>
+        <aside id="help_panel_wrapper">
+            <input id="help_panel_state" type="checkbox">
+            <label for="help_panel_state">
+                <img id="keyboard_icon" src="keybd_closed_cb_900cfef5.png" alt="Show/hide keyboard shortcuts">
+            </label>
+            <div id="help_panel">
+                <p class="legend">Shortcuts on this page</p>
+                <div class="keyhelp">
+                    <p>
+                        <kbd>r</kbd>
+                        <kbd>m</kbd>
+                        <kbd>x</kbd>
+                        &nbsp; toggle line displays
+                    </p>
+                    <p>
+                        <kbd>j</kbd>
+                        <kbd>k</kbd>
+                        &nbsp; next/prev highlighted chunk
+                    </p>
+                    <p>
+                        <kbd>0</kbd> &nbsp; (zero) top of page
+                    </p>
+                    <p>
+                        <kbd>1</kbd> &nbsp; (one) first highlighted chunk
+                    </p>
+                    <p>
+                        <kbd>[</kbd>
+                        <kbd>]</kbd>
+                        &nbsp; prev/next file
+                    </p>
+                    <p>
+                        <kbd>u</kbd> &nbsp; up to the index
+                    </p>
+                    <p>
+                        <kbd>?</kbd> &nbsp; show/hide this help
+                    </p>
+                </div>
+            </div>
+        </aside>
+        <h2>
+            <span class="text">7 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">7<span class="text"> run</span></button>
+            <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">0<span class="text"> missing</span></button>
+            <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
+        </h2>
+        <p class="text">
+            <a id="prevFileLink" class="nav" href="z_66ff50f01d9e540f_test_simple_py.html">&#xab; prev</a> &nbsp; &nbsp;
+            <a id="indexLink" class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
+            <a id="nextFileLink" class="nav" href="z_57760688d1f824db_views_py.html">&#xbb; next</a>
+            &nbsp; &nbsp; &nbsp;
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.13.5">coverage.py v7.13.5</a>,
+            created at 2026-05-04 15:57 +0300
+        </p>
+        <aside class="hidden">
+            <button type="button" class="button_next_chunk" data-shortcut="j"></button>
+            <button type="button" class="button_prev_chunk" data-shortcut="k"></button>
+            <button type="button" class="button_top_of_page" data-shortcut="0"></button>
+            <button type="button" class="button_first_chunk" data-shortcut="1"></button>
+            <button type="button" class="button_prev_file" data-shortcut="["></button>
+            <button type="button" class="button_next_file" data-shortcut="]"></button>
+            <button type="button" class="button_to_index" data-shortcut="u"></button>
+            <button type="button" class="button_show_hide_help" data-shortcut="?"></button>
+        </aside>
+    </div>
+</header>
+<main id="source">
+    <p class="run"><span class="n"><a id="t1" href="#t1">1</a></span><span class="t"><span class="key">from</span> <span class="nam">django</span><span class="op">.</span><span class="nam">urls</span> <span class="key">import</span> <span class="nam">path</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t2" href="#t2">2</a></span><span class="t"><span class="key">from</span> <span class="nam">django</span><span class="op">.</span><span class="nam">contrib</span><span class="op">.</span><span class="nam">auth</span> <span class="key">import</span> <span class="nam">views</span> <span class="key">as</span> <span class="nam">auth_views</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t3" href="#t3">3</a></span><span class="t"><span class="key">from</span> <span class="op">.</span> <span class="key">import</span> <span class="nam">views</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t4" href="#t4">4</a></span><span class="t"><span class="key">from</span> <span class="nam">django</span><span class="op">.</span><span class="nam">conf</span> <span class="key">import</span> <span class="nam">settings</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t5" href="#t5">5</a></span><span class="t"><span class="key">from</span> <span class="nam">django</span><span class="op">.</span><span class="nam">conf</span><span class="op">.</span><span class="nam">urls</span><span class="op">.</span><span class="nam">static</span> <span class="key">import</span> <span class="nam">static</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t6" href="#t6">6</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t7" href="#t7">7</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t8" href="#t8">8</a></span><span class="t"><span class="nam">app_name</span> <span class="op">=</span> <span class="str">'core'</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t"><span class="nam">urlpatterns</span> <span class="op">=</span> <span class="op">[</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">''</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">home</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'home'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'register/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">register</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'register'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'login/'</span><span class="op">,</span> <span class="nam">auth_views</span><span class="op">.</span><span class="nam">LoginView</span><span class="op">.</span><span class="nam">as_view</span><span class="op">(</span><span class="nam">template_name</span><span class="op">=</span><span class="str">'core/login.html'</span><span class="op">)</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'login'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'logout/'</span><span class="op">,</span> <span class="nam">auth_views</span><span class="op">.</span><span class="nam">LogoutView</span><span class="op">.</span><span class="nam">as_view</span><span class="op">(</span><span class="op">)</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'logout'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t14" href="#t14">14</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/new/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">create_project</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'create_project'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t15" href="#t15">15</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/&lt;int:pk>/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">project_detail</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'project_detail'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t16" href="#t16">16</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/&lt;int:project_pk>/task/new/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">create_task</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'create_task'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t17" href="#t17">17</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'task/&lt;int:pk>/edit/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">edit_task</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'edit_task'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t18" href="#t18">18</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'task/&lt;int:pk>/delete/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">delete_task</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'delete_task'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t19" href="#t19">19</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'task/&lt;int:task_pk>/comment/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">add_comment</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'add_comment'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t20" href="#t20">20</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'notifications/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">notifications</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'notifications'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t21" href="#t21">21</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'task/&lt;int:pk>/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">task_detail</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'task_detail'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t22" href="#t22">22</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'profile/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">profile</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'profile'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t23" href="#t23">23</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'password-change/'</span><span class="op">,</span> <span class="nam">auth_views</span><span class="op">.</span><span class="nam">PasswordChangeView</span><span class="op">.</span><span class="nam">as_view</span><span class="op">(</span><span class="nam">template_name</span><span class="op">=</span><span class="str">'core/password_change.html'</span><span class="op">)</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'password_change'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t24" href="#t24">24</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'password-change/done/'</span><span class="op">,</span> <span class="nam">auth_views</span><span class="op">.</span><span class="nam">PasswordChangeDoneView</span><span class="op">.</span><span class="nam">as_view</span><span class="op">(</span><span class="nam">template_name</span><span class="op">=</span><span class="str">'core/password_change_done.html'</span><span class="op">)</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'password_change_done'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t25" href="#t25">25</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'user/&lt;int:user_id>/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">user_public_profile</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'user_public_profile'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t26" href="#t26">26</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'task/&lt;int:pk>/delete-attachment/&lt;int:attachment_pk>/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">delete_attachment</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'delete_attachment'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t27" href="#t27">27</a></span><span class="t">    <span class="com"># &#1059;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1087;&#1088;&#1086;&#1077;&#1082;&#1090;&#1086;&#1084;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t28" href="#t28">28</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/&lt;int:pk>/edit/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">update_project</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'update_project'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t29" href="#t29">29</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/&lt;int:pk>/delete/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">delete_project</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'delete_project'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t30" href="#t30">30</a></span><span class="t">    <span class="com"># &#1059;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1091;&#1095;&#1072;&#1089;&#1090;&#1085;&#1080;&#1082;&#1072;&#1084;&#1080;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t31" href="#t31">31</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/&lt;int:pk>/members/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">manage_members</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'manage_members'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t32" href="#t32">32</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/&lt;int:pk>/members/add/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">add_member</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'add_member'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t33" href="#t33">33</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/&lt;int:pk>/members/&lt;int:user_pk>/remove/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">remove_member</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'remove_member'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t34" href="#t34">34</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'project/&lt;int:pk>/members/&lt;int:user_pk>/change-role/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">change_member_role</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'change_member_role'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t35" href="#t35">35</a></span><span class="t">    <span class="com">#API</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t36" href="#t36">36</a></span><span class="t">    <span class="nam">path</span><span class="op">(</span><span class="str">'api/task/&lt;int:pk>/update-status/'</span><span class="op">,</span> <span class="nam">views</span><span class="op">.</span><span class="nam">update_task_status</span><span class="op">,</span> <span class="nam">name</span><span class="op">=</span><span class="str">'update_task_status'</span><span class="op">)</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run run2"><span class="n"><a id="t37" href="#t37">37</a></span><span class="t"><span class="op">]</span> <span class="op">+</span> <span class="nam">static</span><span class="op">(</span><span class="nam">settings</span><span class="op">.</span><span class="nam">MEDIA_URL</span><span class="op">,</span> <span class="nam">document_root</span><span class="op">=</span><span class="nam">settings</span><span class="op">.</span><span class="nam">MEDIA_ROOT</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+</main>
+<footer>
+    <div class="content">
+        <p>
+            <a class="nav" href="z_66ff50f01d9e540f_test_simple_py.html">&#xab; prev</a> &nbsp; &nbsp;
+            <a class="nav" href="index.html">&Hat; index</a> &nbsp; &nbsp;
+            <a class="nav" href="z_57760688d1f824db_views_py.html">&#xbb; next</a>
+            &nbsp; &nbsp; &nbsp;
+            <a class="nav" href="https://coverage.readthedocs.io/en/7.13.5">coverage.py v7.13.5</a>,
+            created at 2026-05-04 15:57 +0300
+        </p>
+    </div>
+</footer>
+</body>
+</html>
