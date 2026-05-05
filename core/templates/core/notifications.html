@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Уведомления</h2>
+    {% if notifications %}
+        <ul class="list-group">
+            {% for notif in notifications %}
+                <li class="list-group-item {% if not notif.is_read %}list-group-item-warning{% endif %}">
+                    {{ notif.message }}
+                    <small class="text-muted d-block">{{ notif.created_at|date:"d.m.Y H:i" }}</small>
+                    {% if notif.task %}
+                        <a href="{% url 'core:task_detail' notif.task.id %}">Перейти к задаче</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет уведомлений.</p>
+    {% endif %}
+</div>
+{% endblock %}

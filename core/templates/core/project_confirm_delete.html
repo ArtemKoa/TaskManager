@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Удалить проект "{{ project.name }}"?</h2>
+    <p>Это действие невозможно отменить. Все задачи и комментарии проекта будут удалены.</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Да, удалить</button>
+        <a href="{% url 'core:project_detail' project.id %}" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+{% endblock %}

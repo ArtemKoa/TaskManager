@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="alert alert-danger">
+        {{ message|default:"Доступ запрещён." }}
+        <br><a href="{% url 'core:home' %}" class="alert-link">Вернуться на главную</a>
+    </div>
+</div>
+{% endblock %}

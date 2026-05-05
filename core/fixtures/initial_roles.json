@@ -1,0 +1,6 @@
+[
+  { "model": "core.role", "pk": 1, "fields": { "name": "Owner" } },
+  { "model": "core.role", "pk": 2, "fields": { "name": "Admin" } },
+  { "model": "core.role", "pk": 3, "fields": { "name": "Project Manager" } },
+  { "model": "core.role", "pk": 4, "fields": { "name": "Member" } }
+]

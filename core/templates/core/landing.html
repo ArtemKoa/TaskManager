@@ -1,0 +1,171 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .card {
+        border-radius: 16px;
+        transition: 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    .btn {
+        border-radius: 10px;
+    }
+    h4 {
+        display: flex;
+        justify-content: center; /* Горизонталь */
+        align-items: center;     /* Вертикаль */
+    }
+    .card p {
+        text-align: center;
+    }
+    
+</style>
+<div class="container py-5">
+    <!-- HERO -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h1 class="display-3 fw-bold mb-3">
+                Управляйте задачами<br>
+                <span class="text-primary">как команда</span>
+            </h1>
+
+            <p class="lead text-muted">
+                TaskManager — это удобный инструмент для управления проектами,
+                задачами и командной работой в одном месте.
+            </p>
+
+            <div class="mt-4">
+                <a href="{% url 'core:register' %}" class="btn btn-primary btn-lg me-2">
+                    Начать бесплатно
+                </a>
+                <a href="{% url 'core:login' %}" class="btn btn-outline-secondary btn-lg">
+                    Войти
+                </a>
+            </div>
+
+            <p class="text-muted mt-3 small">
+                Бесплатно • Быстрый старт
+            </p>
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/logo.png' %}"
+                 class="img-fluid rounded shadow"
+                 alt="Kanban preview">
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Всё для командной работы</h2>
+        <p class="text-muted">Основные возможности системы</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <h4>Управление задачами</h4>
+                <p class="text-muted">
+                    Создавайте задачи, назначайте исполнителей,
+                    устанавливайте сроки и отслеживайте прогресс.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <h4>Kanban-доска</h4>
+                <p class="text-muted">
+                    Перетаскивайте задачи между колонками
+                    To Do, In Progress и Done.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <h4>Командная работа</h4>
+                <p class="text-muted">
+                    Приглашайте участников, назначайте роли
+                    и управляйте доступом.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <h4>Комментарии</h4>
+                <p class="text-muted">
+                    Обсуждайте задачи и используйте @упоминания
+                    для уведомления участников.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <h4>Уведомления</h4>
+                <p class="text-muted">
+                    Получайте уведомления при назначении задач
+                    и упоминаниях.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm p-4">
+                <h4>Вложения</h4>
+                <p class="text-muted">
+                    Загружайте файлы и работайте с документами
+                    прямо внутри задач.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Как это работает</h2>
+    </div>
+
+    <div class="row text-center mb-5">
+
+        <div class="col-md-4">
+            <h3>1️⃣</h3>
+            <h5>Создайте проект</h5>
+            <p class="text-muted">Организуйте рабочее пространство</p>
+        </div>
+
+        <div class="col-md-4">
+            <h3>2️⃣</h3>
+            <h5>Добавьте команду</h5>
+            <p class="text-muted">Пригласите участников по email</p>
+        </div>
+
+        <div class="col-md-4">
+            <h3>3️⃣</h3>
+            <h5>Управляйте задачами</h5>
+            <p class="text-muted">Следите за прогрессом в реальном времени</p>
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center p-5 bg-light rounded shadow-sm">
+        <h2 class="fw-bold mb-3">Готовы начать?</h2>
+        <p class="text-muted mb-4">
+            Создайте аккаунт и начните управлять задачами уже сегодня
+        </p>
+
+        <a href="{% url 'core:register' %}" class="btn btn-success btn-lg">
+            Зарегистрироваться
+        </a>
+    </div>
+
+</div>
+{% endblock %}
