@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
+import dj_database_url
 os.environ['LOGIN_REDIRECT_URL'] = '/'
 from pathlib import Path
 
@@ -76,15 +77,22 @@ WSGI_APPLICATION = 'taskmanager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'taskmanager_db',
+#         'USER': 'postgres',
+#         'PASSWORD': 'artem123',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'taskmanager_db',
-        'USER': 'postgres',
-        'PASSWORD': 'artem123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        default='postgres://taskmanager_user:your_password@localhost:5432/taskmanager_db',
+        conn_max_age=600
+    )
 }
 
 
