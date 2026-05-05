@@ -27,8 +27,12 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-kixrfp30e!^!!m89pptel
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'taskmanager-k6wc.onrender.com',  # ваш точный URL
+    '.onrender.com',  # разрешает все поддомены render.com
+]
 
 # Application definition
 
