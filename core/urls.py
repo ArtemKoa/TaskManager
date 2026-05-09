@@ -24,6 +24,11 @@ urlpatterns = [
     path('password-change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='core/password_change_done.html'), name='password_change_done'),
     path('user/<int:user_id>/', views.user_public_profile, name='user_public_profile'),
     path('task/<int:pk>/delete-attachment/<int:attachment_pk>/', views.delete_attachment, name='delete_attachment'),
+    path('api/search-users/', views.search_users, name='search_users'),
+    path('project/<int:pk>/invite/', views.invite_member, name='invite_member'),
+    path('project/<int:pk>/leave/', views.leave_project, name='leave_project'),
+    path('accept-invitation/<int:notification_id>/', views.accept_invitation, name='accept_invitation'),
+    path('decline-invitation/<int:notification_id>/', views.decline_invitation, name='decline_invitation'),
     # Управление проектом
     path('project/<int:pk>/edit/', views.update_project, name='update_project'),
     path('project/<int:pk>/delete/', views.delete_project, name='delete_project'),
