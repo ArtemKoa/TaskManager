@@ -11,6 +11,9 @@
                     {% if role == 'Owner' or role == 'Admin' or role == 'Project Manager' %}
                         <a href="{% url 'core:create_task' project.id %}" class="btn btn-success">+ Добавить задачу</a>
                     {% endif %}
+                    {% if role != 'Owner' %}
+                        <a href="{% url 'core:leave_project' project.id %}" class="btn btn-outline-danger" onclick="return confirm('Вы уверены, что хотите выйти из проекта?')">Выйти</a>
+                    {% endif %}
                     {% if role == 'Owner' or role == 'Admin' %}
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
@@ -33,28 +36,28 @@
 
     <!-- Фильтр по тегам -->
     {% if project_tags %}
-        <div class="row mb-3">
-            <div class="col">
-                <form method="get" class="row g-2 align-items-center">
-                    <div class="col-auto">
-                        <label class="col-form-label">Фильтр по тегу:</label>
-                    </div>
-                    <div class="col-auto">
-                        <select name="tag" class="form-select" onchange="this.form.submit()">
-                            <option value="">Все задачи</option>
-                            {% for tag in project_tags %}
-                                <option value="{{ tag.id }}" {% if selected_tag == tag.id|stringformat:"s" %}selected{% endif %}>{{ tag.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    {% if selected_tag %}
-                        <div class="col-auto">
-                            <a href="{% url 'core:project_detail' project.id %}" class="btn btn-secondary">Сбросить</a>
-                        </div>
-                    {% endif %}
-                </form>
-            </div>
+    <div class="row mb-3">
+        <div class="col">
+            <form method="get" class="row g-2 align-items-center">
+                <div class="col-auto">
+                    <label class="col-form-label">Фильтр по тегу:</label>
+                </div>
+                <div class="col-auto">
+                    <select name="tag" class="form-select" onchange="this.form.submit()">
+                        <option value="">Все задачи</option>
+                        {% for tag in project_tags %}
+                            <option value="{{ tag.id }}" {% if selected_tag == tag.id|stringformat:"s" %}selected{% endif %}>{{ tag.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                {% if selected_tag %}
+                <div class="col-auto">
+                    <a href="{% url 'core:project_detail' project.id %}" class="btn btn-secondary">Сбросить</a>
+                </div>
+                {% endif %}
+            </form>
         </div>
+    </div>
     {% endif %}
 
     <div class="row">
@@ -110,16 +113,9 @@
 </div>
 
 <style>
-    .task-card {
-        cursor: grab;
-        user-select: none;
-    }
-    .task-card:active {
-        cursor: grabbing;
-    }
-    .task-list {
-        min-height: 200px;
-    }
+    .task-card { cursor: grab; user-select: none; }
+    .task-card:active { cursor: grabbing; }
+    .task-list { min-height: 200px; }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
@@ -147,10 +143,7 @@
     function updateTaskStatus(taskId, newStatus, taskCard) {
         fetch(`/api/task/${taskId}/update-status/`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken')
-            },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
             body: JSON.stringify({ status: newStatus })
         })
         .then(response => response.json())
@@ -165,7 +158,6 @@
                     statusBadge.textContent = statusText;
                 }
             } else {
-                console.error('Ошибка обновления статуса');
                 location.reload();
             }
         })
