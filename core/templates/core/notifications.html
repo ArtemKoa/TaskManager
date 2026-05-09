@@ -2,21 +2,35 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2>Уведомления</h2>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Уведомления</h2>
+        <a href="{% url 'core:home' %}" class="btn btn-secondary">На главную</a>
+    </div>
+
     {% if notifications %}
-        <ul class="list-group">
+        <div class="list-group">
             {% for notif in notifications %}
-                <li class="list-group-item {% if not notif.is_read %}list-group-item-warning{% endif %}">
-                    {{ notif.message }}
-                    <small class="text-muted d-block">{{ notif.created_at|date:"d.m.Y H:i" }}</small>
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ notif.message }}</h5>
+                        <small class="text-muted">{{ notif.created_at|date:"d.m.Y H:i" }}</small>
+                    </div>
                     {% if notif.task %}
-                        <a href="{% url 'core:task_detail' notif.task.id %}">Перейти к задаче</a>
+                        <p class="mb-1">Задача: <a href="{% url 'core:task_detail' notif.task.id %}">{{ notif.task.title }}</a></p>
                     {% endif %}
-                </li>
+                    {% if notif.project %}
+                        <div class="mt-2">
+                            <a href="{% url 'core:accept_invitation' notif.id %}" class="btn btn-sm btn-success me-2">Принять</a>
+                            <a href="{% url 'core:decline_invitation' notif.id %}" class="btn btn-sm btn-danger">Отклонить</a>
+                        </div>
+                    {% endif %}
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
-        <p>Нет уведомлений.</p>
+        <div class="alert alert-info">
+            У вас нет уведомлений.
+        </div>
     {% endif %}
 </div>
 {% endblock %}
