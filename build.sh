@@ -1,3 +1,5 @@
+chmod +x build.sh
+
 #!/bin/bash
 set -e
 
