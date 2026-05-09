@@ -4,11 +4,11 @@ set -e
 # Установка зависимостей
 pip install -r requirements.txt
 
-# Сбор статических файлов
-python manage.py collectstatic --noinput
-
 # Применение миграций
 python manage.py migrate
+
+# Сбор статических файлов
+python manage.py collectstatic --noinput
 
 # Создание суперпользователя, если заданы переменные окружения
 if [[ -n "$DJANGO_SUPERUSER_USERNAME" && -n "$DJANGO_SUPERUSER_PASSWORD" ]]; then
