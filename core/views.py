@@ -3,18 +3,58 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import Project, Task, Comment, ProjectMember, Role, Notification, UserProfile, TaskAttachment, Tag
-from .forms import TaskForm, CommentForm, ProjectForm
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 import json
 import re
-from .forms import CustomUserCreationForm, UserProfileForm, UserEditForm
+from .forms import CustomUserCreationForm, UserProfileForm, UserEditForm, TaskForm, CommentForm, ProjectForm
 import os
 
-from django.views.decorators.csrf import csrf_exempt
 
+def search_users(request):
+    query = request.GET.get('q', '')
+    project_id = request.GET.get('project_id')
+    if not query or not project_id:
+        return JsonResponse([], safe=False)
+    project = get_object_or_404(Project, id=project_id)
+    existing_users = ProjectMember.objects.filter(project=project).values_list('user_id', flat=True)
+    users = User.objects.filter(username__icontains=query).exclude(id__in=existing_users).exclude(id=request.user.id)[:10]
+    # Дополнительно поиск по email (если email совпадает, тоже добавить в результаты, но избегая дубликатов)
+    email_users = User.objects.filter(email__icontains=query).exclude(id__in=existing_users).exclude(id=request.user.id).exclude(id__in=[u.id for u in users])[:10]
+    users = list(users) + list(email_users)
+    data = [{'id': u.id, 'username': u.username, 'email': u.email} for u in users]
+    return JsonResponse(data, safe=False)
+
+@login_required
+def invite_member(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    if get_user_role_in_project(request.user, project) not in ['Owner', 'Admin']:
+        return redirect('core:project_detail', pk=project.pk)
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        invited_user = get_object_or_404(User, pk=user_id)
+        # Проверяем, не состоит ли уже в проекте
+        if not ProjectMember.objects.filter(user=invited_user, project=project).exists():
+            # Создаём уведомление-приглашение
+            Notification.objects.create(
+                user=invited_user,
+                message=f'Приглашение в проект "{project.name}". Нажмите "Принять", чтобы присоединиться.',
+                project=project,
+                is_read=False
+            )
+    return redirect('core:manage_members', pk=project.pk)
+
+
+@login_required
+def leave_project(request, pk):
+    """Выход из проекта"""
+    project = get_object_or_404(Project, pk=pk)
+    membership = ProjectMember.objects.filter(user=request.user, project=project).first()
+    if membership and membership.role.name != 'Owner':
+        membership.delete()
+    return redirect('core:home')
 
 
 # Главная страница (список проектов пользователя)
@@ -268,28 +308,6 @@ def update_task_status(request, pk):
         return JsonResponse({'success': False, 'error': 'Task not found'}, status=404)
 
 
-# Для тестирования locust
-# from django.views.decorators.csrf import csrf_exempt
-# import json
-
-# @csrf_exempt
-# @require_POST
-# def update_task_status(request, pk):
-#     # Временно разрешаем любому запросу (потом уберёте)
-#     if not request.user.is_authenticated:
-#         return JsonResponse({'success': False, 'error': 'Not authenticated'}, status=401)
-#     try:
-#         task = Task.objects.get(pk=pk)
-#         data = json.loads(request.body)
-#         new_status = data.get('status')
-#         if new_status not in ['todo', 'in_progress', 'done']:
-#             return JsonResponse({'success': False, 'error': 'Invalid status'}, status=400)
-#         task.status = new_status
-#         task.save()
-#         return JsonResponse({'success': True})
-#     except Task.DoesNotExist:
-#         return JsonResponse({'success': False, 'error': 'Task not found'}, status=404)
-    
 
 @login_required
 def notifications(request):
@@ -469,3 +487,22 @@ def change_member_role(request, pk, user_pk):
             pass
     return redirect('core:manage_members', pk=project.pk)
 
+
+@login_required
+def accept_invitation(request, notification_id):
+    notification = get_object_or_404(Notification, pk=notification_id, user=request.user)
+    if notification.project:
+        project = notification.project
+        # Проверяем, не состоит ли уже в проекте
+        if not ProjectMember.objects.filter(user=request.user, project=project).exists():
+            member_role = Role.objects.get(name='Member')
+            ProjectMember.objects.create(user=request.user, project=project, role=member_role)
+        notification.delete()  # удаляем уведомление после принятия
+    return redirect('core:notifications')
+
+@login_required
+def decline_invitation(request, notification_id):
+    notification = get_object_or_404(Notification, pk=notification_id, user=request.user)
+    # Просто удаляем уведомление
+    notification.delete()
+    return redirect('core:notifications')
