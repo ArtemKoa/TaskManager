@@ -13,11 +13,11 @@ python manage.py migrate
 python manage.py collectstatic --noinput
 
 # Создание суперпользователя, если заданы переменные окружения
-if [[ -n "$DJANGO_SUPERUSER_USERNAME" && -n "$DJANGO_SUPERUSER_PASSWORD" ]]; then
-    python manage.py createsuperuser --noinput \
-        --username "$DJANGO_SUPERUSER_USERNAME" \
-        --email "${DJANGO_SUPERUSER_EMAIL:-admin@example.com}" || true
-fi
+# if [[ -n "$DJANGO_SUPERUSER_USERNAME" && -n "$DJANGO_SUPERUSER_PASSWORD" ]]; then
+#     python manage.py createsuperuser --noinput \
+#         --username "$DJANGO_SUPERUSER_USERNAME" \
+#         --email "${DJANGO_SUPERUSER_EMAIL:-admin@example.com}" || true
+# fi
 
 # Создание ролей
 python manage.py shell -c "
