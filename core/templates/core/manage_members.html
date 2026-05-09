@@ -11,26 +11,26 @@
         <div class="alert alert-danger">{{ error }}</div>
     {% endif %}
     
-    <!-- Форма добавления участника -->
+    <!-- Новая форма: поиск по имени или email с выбором роли -->
     <div class="card mb-4">
-        <div class="card-header">Добавить участника</div>
+        <div class="card-header">Пригласить по имени или email</div>
         <div class="card-body">
-            <form method="post" action="{% url 'core:add_member' project.id %}">
+            <div class="mb-3">
+                <label for="user-search" class="form-label">Поиск пользователя</label>
+                <input type="text" id="user-search" class="form-control" placeholder="Введите имя или email">
+                <div id="user-results" class="list-group mt-2" style="display: none;"></div>
+            </div>
+            <form id="invite-form" method="post" action="{% url 'core:invite_member' project.id %}">
                 {% csrf_token %}
-                <div class="row">
-                    <div class="col-md-5">
-                        <input type="email" name="email" class="form-control" placeholder="Email пользователя" required>
-                    </div>
-                    <div class="col-md-4">
-                        <select name="role_id" class="form-select">
-                            {% for role in all_roles %}
-                                <option value="{{ role.id }}">{{ role.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <button type="submit" class="btn btn-primary">Добавить</button>
-                    </div>
+                <input type="hidden" name="user_id" id="invite-user-id">
+                <div class="mt-3" id="role-selector" style="display: none;">
+                    <label class="form-label">Выберите роль</label>
+                    <select name="role_id" class="form-select" id="invite-role-id">
+                        {% for role in all_roles %}
+                            <option value="{{ role.id }}">{{ role.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-success mt-2">Пригласить</button>
                 </div>
             </form>
         </div>
@@ -48,12 +48,7 @@
         <tbody>
             {% for member in members %}
             <tr>
-                <td>
-                    <a href="{% url 'core:user_public_profile' member.user.id %}">
-                        {{ member.user.username }}
-                    </a>
-                    ({{ member.user.email }})
-                </td>
+                <td>{{ member.user.username }} ({{ member.user.email }})</td>
                 <td>
                     <form method="post" action="{% url 'core:change_member_role' project.id member.user.id %}" style="display: inline;">
                         {% csrf_token %}
@@ -77,4 +72,49 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    const searchInput = document.getElementById('user-search');
+    const resultsDiv = document.getElementById('user-results');
+    const userIdField = document.getElementById('invite-user-id');
+    const roleSelector = document.getElementById('role-selector');
+    const inviteForm = document.getElementById('invite-form');
+    let timeoutId;
+
+    searchInput.addEventListener('input', function() {
+        clearTimeout(timeoutId);
+        const query = this.value.trim();
+        if (query.length < 2) {
+            resultsDiv.style.display = 'none';
+            return;
+        }
+        timeoutId = setTimeout(() => {
+            fetch(`/api/search-users/?q=${encodeURIComponent(query)}&project_id={{ project.id }}`)
+                .then(r => r.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        resultsDiv.innerHTML = '<div class="list-group-item text-muted">Не найдено</div>';
+                        resultsDiv.style.display = 'block';
+                        roleSelector.style.display = 'none';
+                        return;
+                    }
+                    let html = '';
+                    data.forEach(u => {
+                        html += `<button type="button" class="list-group-item list-group-item-action" data-id="${u.id}" data-name="${u.username}" data-email="${u.email}">${u.username} (${u.email})</button>`;
+                    });
+                    resultsDiv.innerHTML = html;
+                    resultsDiv.style.display = 'block';
+                    document.querySelectorAll('#user-results .list-group-item-action').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const userId = this.dataset.id;
+                            userIdField.value = userId;
+                            resultsDiv.style.display = 'none';
+                            roleSelector.style.display = 'block';
+                            searchInput.value = this.dataset.name;
+                        });
+                    });
+                });
+        }, 300);
+    });
+</script>
 {% endblock %}
