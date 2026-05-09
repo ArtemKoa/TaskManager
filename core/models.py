@@ -147,6 +147,7 @@ class Notification(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True, blank=True)
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, blank=True)  # новое поле
 
     def __str__(self):
         return f"Уведомление для {self.user.username}: {self.message[:50]}"
